@@ -1,4 +1,5 @@
 // import Link from 'next/link';
+import Link from 'next/link';
 import { IconType } from 'react-icons';
 import { twMerge } from 'tailwind-merge';
 
@@ -13,10 +14,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   icon: Icon,
   label,
   active,
-  href
+  href,
 }) => {
   return ( 
-      <div
+      <Link
+      href={href} 
         className={twMerge(`
           flex 
           flex-row 
@@ -40,7 +42,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
           <Icon size={26} />
         )}
         <p className="truncate w-100">{label}</p>
-      </div>
+      </Link>
    );
 }
 

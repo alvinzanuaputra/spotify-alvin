@@ -34,13 +34,13 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
         />
       ),
       label: 'Zanualvin',
-      active: pathname !== '/search',
+      active: pathname === '/',
       href: '/'
     },
     {
       icon: HiHome,
       label: 'Home',
-      active: pathname !== '/search',
+      active: pathname === '/',
       href: '/'
     },
     {
@@ -50,6 +50,7 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
       active: pathname === '/search'
     },
   ], [pathname]);
+
 
   return (
     <div

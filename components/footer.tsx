@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function BAWAH() {
     return (
-        <div className="mx-8">
+        <div className="mx-8 mt-10">
             <footer className="text-gray-300">
                 <div className="container mx-auto py-8">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -36,17 +36,18 @@ export default function BAWAH() {
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center border-t-2 py-4 border-gray-600 justify-between">
-                    <ul className="flex items-center gap-4 text-xs">
-                    <li><a href="#" className="hover:text-white">Judge</a></li>
-                    <li><a href="#" className="hover:text-white">Security & privacy</a></li>
-                    <li><a href="#" className="hover:text-white">Privacy</a></li>
-                    <li><a href="#" className="hover:text-white">Cookies</a></li>
-                    <li><a href="#" className="hover:text-white">About advertisment</a></li>
-                    <li><a href="#" className="hover:text-white">Accesbility</a></li>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-1 gap-8 items-center border-t-2 py-4 border-gray-600 justify-between">
+                    <ul className="flex flex-nowrap items-center gap-4 text-xs md:text-sm">
+                        <li><a href="#" className="hover:text-white">Judge</a></li>
+                        <li><a href="#" className="hover:text-white">Security & privacy</a></li>
+                        <li><a href="#" className="hover:text-white">Privacy</a></li>
+                        <li><a href="#" className="hover:text-white">Cookies</a></li>
+                        <li><a href="#" className="hover:text-white">About advertisment</a></li>
+                        <li><a href="#" className="hover:text-white">Accessibility</a></li>
+                    <p className="text-xs md:text-sm font-semibold flex items-center justify-end">&copy; 2024 Alvin Spotify</p>
                     </ul>
-                    <p className="text-sm font-semibold">&copy; 2024 Alvin Spotify</p>
                 </div>
+
             </footer>
         </div>
     );
