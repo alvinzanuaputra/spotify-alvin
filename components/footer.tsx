@@ -36,17 +36,20 @@ export default function BAWAH() {
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-1 gap-8 items-center border-t-2 py-4 border-gray-600 justify-between">
-                    <ul className="flex flex-nowrap items-center gap-4 text-xs md:text-sm">
-                        <li><a href="#" className="hover:text-white">Judge</a></li>
-                        <li><a href="#" className="hover:text-white">Security & privacy</a></li>
-                        <li><a href="#" className="hover:text-white">Privacy</a></li>
-                        <li><a href="#" className="hover:text-white">Cookies</a></li>
-                        <li><a href="#" className="hover:text-white">About advertisment</a></li>
-                        <li><a href="#" className="hover:text-white">Accessibility</a></li>
-                    <p className="text-xs md:text-sm font-semibold flex items-center justify-end">&copy; 2024 Alvin Spotify</p>
-                    </ul>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-t-2 py-4 border-gray-600">
+                    <div className="flex justify-between">
+                        <ul className="flex flex-wrap items-center gap-4 text-xs md:text-sm">
+                            <li><a href="#" className="hover:text-white">Judge</a></li>
+                            <li><a href="#" className="hover:text-white">Security & privacy</a></li>
+                            <li><a href="#" className="hover:text-white">Privacy</a></li>
+                            <li><a href="#" className="hover:text-white">Cookies</a></li>
+                            <li><a href="#" className="hover:text-white">About advertisment</a></li>
+                            <li><a href="#" className="hover:text-white">Accessibility</a></li>
+                        </ul>
+                    </div>
+                    <p className="text-xs md:text-sm font-semibold flex items-center md:justify-end">© 2024 Alvin Spotify</p>
                 </div>
+
 
             </footer>
         </div>
