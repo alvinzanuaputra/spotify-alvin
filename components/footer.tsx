@@ -1,8 +1,9 @@
 import React from 'react';
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 export default function BAWAH() {
     return (
-        <div className="mx-8 mt-10">
+        <div className="mx-8 mt-14">
             <footer className="text-gray-300">
                 <div className="container mx-auto py-8">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -31,10 +32,31 @@ export default function BAWAH() {
                                 <li><a href="#" className="hover:text-white">Free router app</a></li>
                             </ul>
                         </div>
-                        <div>
-
-                        </div>
                     </div>
+                        <div className="flex items-center gap-2 mt-4">
+                            <a href="https://www.instagram.com/znualvin_"
+                                className="rounded-full p-2  bg-neutral-700  flex items-center justify-center cursor-pointer hover:opacity-75 transition">
+                                <FaInstagram
+                                    size={20}
+                                    className="text-white "
+                                />
+                            </a>
+                            <a href="https://twitter.com/AlvinZanua"
+                                className="rounded-full p-2  bg-neutral-700  flex items-center justify-center cursor-pointer hover:opacity-75 transition">
+                                <FaTwitter
+                                    size={20}
+                                    className="text-white "
+                                />
+                            </a>
+
+                            <a href="https://www.facebook.com/people/Alvin-Zanua-Putra/pfbid09ZFCwUHmAsnxJRU1aoBW2Qb2syFLPyKkkpntpiwrSUJUbDL9v1z9brR1emohLCnvl/"
+                                className="rounded-full p-2  bg-neutral-700  flex items-center justify-center cursor-pointer hover:opacity-75 transition">
+                                <FaFacebook
+                                    size={20}
+                                    className="text-white "
+                                />
+                            </a>
+                        </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-t-2 py-4 border-gray-600">
                     <div className="flex justify-between">

@@ -8,12 +8,14 @@ import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { toast } from "react-hot-toast";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
-
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import usePlayer from "@/hooks/usePlayer";
-
 import Button from "./Button";
+import useSubscribeModal from "@/hooks/useSubscribeModal";
+import useUploadModal from "@/hooks/useUploadModal";
+import { TbPlaylist } from "react-icons/tb";
+
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -27,9 +29,23 @@ const Header: React.FC<HeaderProps> = ({
   const player = usePlayer();
   const router = useRouter();
   const authModal = useAuthModal();
-
+  const uploadModal = useUploadModal();
+  const { subscription } = useUser();
+  const subscribeModal = useSubscribeModal();
   const supabaseClient = useSupabaseClient();
   const { user } = useUser();
+
+  const onClick = () => {
+    if (!user) {
+      return authModal.onOpen();
+    }
+
+    if (!subscription) {
+      return subscribeModal.onOpen();
+    }
+
+    return uploadModal.onOpen();
+  }
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
@@ -53,8 +69,8 @@ const Header: React.FC<HeaderProps> = ({
       )}>
       <div className="w-full mb-4 flex items-center justify-between">
         <div className="hidden md:flex gap-x-2 items-center">
-          <button 
-            onClick={() => router.back()} 
+          <button
+            onClick={() => router.back()}
             className="
               rounded-full 
               bg-black 
@@ -68,8 +84,8 @@ const Header: React.FC<HeaderProps> = ({
           >
             <RxCaretLeft className="text-white" size={35} />
           </button>
-          <button 
-            onClick={() => router.forward()} 
+          <button
+            onClick={() => router.forward()}
             className="
               rounded-full 
               bg-black 
@@ -85,8 +101,8 @@ const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
         <div className="flex md:hidden gap-x-2 items-center">
-          <button 
-            onClick={() => router.push('/')} 
+          <button
+            onClick={() => router.push('/')}
             className="
               rounded-full 
               p-2 
@@ -101,8 +117,8 @@ const Header: React.FC<HeaderProps> = ({
           >
             <HiHome className="text-black" size={20} />
           </button>
-          <button 
-            onClick={() => router.push('/search')} 
+          <button
+            onClick={() => router.push('/search')}
             className="
               rounded-full 
               p-2 
@@ -117,18 +133,39 @@ const Header: React.FC<HeaderProps> = ({
           >
             <BiSearch className="text-black" size={20} />
           </button>
+          <button
+            onClick={() => router.push('/search')}
+            className="
+              rounded-full 
+              p-2 
+              bg-white 
+              flex 
+              items-center 
+              justify-center 
+              cursor-pointer 
+              hover:opacity-75 
+              transition
+            "
+          >
+            <TbPlaylist 
+          onClick={onClick} 
+          size={20} 
+          className="text-black "
+        />
+          </button>
+
         </div>
         <div className="flex justify-between items-center gap-x-4">
           {user ? (
             <div className="flex gap-x-4 items-center">
-              <Button 
-                onClick={handleLogout} 
+              <Button
+                onClick={handleLogout}
                 className="bg-white px-6 py-2"
               >
                 Logout
               </Button>
-              <Button 
-                onClick={() => router.push('/account')} 
+              <Button
+                onClick={() => router.push('/account')}
                 className="bg-white"
               >
                 <FaUserAlt />
@@ -137,8 +174,8 @@ const Header: React.FC<HeaderProps> = ({
           ) : (
             <>
               <div>
-                <Button 
-                  onClick={authModal.onOpen} 
+                <Button
+                  onClick={authModal.onOpen}
                   className="
                     bg-transparent 
                     text-neutral-300 
@@ -149,8 +186,8 @@ const Header: React.FC<HeaderProps> = ({
                 </Button>
               </div>
               <div>
-                <Button 
-                  onClick={authModal.onOpen} 
+                <Button
+                  onClick={authModal.onOpen}
                   className="bg-white px-6 py-2"
                 >
                   Log in
