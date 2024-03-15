@@ -49,7 +49,7 @@ export default function BAWAH() {
                                 />
                             </a>
 
-                            <a href="https://www.facebook.com/people/Alvin-Zanua-Putra/pfbid09ZFCwUHmAsnxJRU1aoBW2Qb2syFLPyKkkpntpiwrSUJUbDL9v1z9brR1emohLCnvl/"
+                            <a href="https://www.facebook.com/profile.php?id=100070957315001"
                                 className="rounded-full p-2  bg-neutral-700  flex items-center justify-center cursor-pointer hover:opacity-75 transition">
                                 <FaFacebook
                                     size={20}
