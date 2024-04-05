@@ -36,7 +36,7 @@ Key Features:
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/alvinzanuaputra/alvinznutra-spotify-alvin.git
+git clone https://github.com/alvinzanuaputra/alvinzanuaputra-spotify-alvin.git
 ```
 
 ### Install packages
