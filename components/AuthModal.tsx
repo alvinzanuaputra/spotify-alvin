@@ -7,13 +7,11 @@ import {
   useSessionContext, 
   useSupabaseClient
 } from '@supabase/auth-helpers-react';
-import { useRouter } from 'next/navigation';
-
+import { useRouter } from 'next/router';
 import useAuthModal from "@/hooks/useAuthModal";
-
 import Modal from './Modal';
 
-const AuthModal = () => {
+const AuthModal: React.FC = () => {
   const { session } = useSessionContext();
   const router = useRouter();
   const { onClose, isOpen } = useAuthModal();
@@ -42,7 +40,7 @@ const AuthModal = () => {
     >
       <Auth
         supabaseClient={supabaseClient}
-        // providers={['github']}
+        providers={['google']}
         magicLink={true}
         appearance={{
           theme: ThemeSupa,
