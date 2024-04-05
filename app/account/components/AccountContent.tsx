@@ -29,7 +29,7 @@ const AccountContent = () => {
       });
       window.location.assign(url);
     } catch (error) {
-      if (error) return alert((error as Error).message);
+      if (error) return alert("Successfully, go to back to home page.");
     }
     setLoading(false);
   };
