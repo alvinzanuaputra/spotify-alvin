@@ -5,7 +5,7 @@
     "scope": "/",
     "start_url": "/",
     "name": "Alvin Spotify",
-    "short_name": "Alvin Spotify-pwa",
+    "short_name": "Alvin Spotify",
     "icons": [
         {
             "src": "/icon-192x192.png",
