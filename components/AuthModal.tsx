@@ -1,18 +1,20 @@
 "use client";
-
 import React, { useEffect } from 'react';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
+import { useSession, signIn, signOut } from "next-auth/react";
 import { 
   useSessionContext, 
   useSupabaseClient
 } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/navigation';
+
 import useAuthModal from "@/hooks/useAuthModal";
+
 import Modal from './Modal';
 
-const AuthModal: React.FC = () => {
-  const { session } = useSessionContext();
+const AuthModal = () => {
+  const { session } = useSession();
   const router = useRouter();
   const { onClose, isOpen } = useAuthModal();
   
@@ -31,6 +33,14 @@ const AuthModal: React.FC = () => {
     }
   }
 
+  const handleSignIn = () => {
+    signIn(); // Sign in with NextAuth
+  }
+
+  const handleSignOut = () => {
+    signOut(); // Sign out with NextAuth
+  }
+
   return (
     <Modal 
       title="Welcome back" 
@@ -38,6 +48,17 @@ const AuthModal: React.FC = () => {
       isOpen={isOpen} 
       onChange={onChange} 
     >
+      {session ? (
+        <>
+          Signed in as {session.user.email} <br />
+          <button onClick={handleSignOut}>Sign out</button>
+        </>
+      ) : (
+        <>
+          Not signed in <br />
+          <button onClick={handleSignIn}>Sign in</button>
+        </>
+      )}
       <Auth
         supabaseClient={supabaseClient}
         providers={['google']}
