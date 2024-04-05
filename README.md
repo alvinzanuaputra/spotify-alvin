@@ -39,6 +39,14 @@ Key Features:
 git clone https://github.com/alvinzanuaputra/spotify-alvin.git
 ```
 
+FOR NEXT PWA
+```shell
+https://www.simicart.com/manifest-generator.html/
+```
+```shell
+https://www.npmjs.com/package/next-pwa
+```
+
 ### Install packages
 
 ```shell
