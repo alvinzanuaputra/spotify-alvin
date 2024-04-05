@@ -1,27 +1,24 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
-import {
-  useSessionContext,
-  useSupabaseClient,
-} from "@supabase/auth-helpers-react";
-import { useRouter } from "next/navigation";
+import React, { useEffect } from 'react';
+import { Auth } from '@supabase/auth-ui-react';
+import { ThemeSupa } from '@supabase/auth-ui-shared';
+import { 
+  useSessionContext, 
+  useSupabaseClient
+} from '@supabase/auth-helpers-react';
+import { useRouter } from 'next/navigation';
 
 import useAuthModal from "@/hooks/useAuthModal";
 
-import Modal from "./Modal";
+import Modal from './Modal';
 
 const AuthModal = () => {
   const { session } = useSessionContext();
   const router = useRouter();
   const { onClose, isOpen } = useAuthModal();
-
+  
   const supabaseClient = useSupabaseClient();
-const googleClientId = process.env.GOOGLE_CLIENT_ID;
-const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
-
 
   useEffect(() => {
     if (session) {
@@ -34,56 +31,34 @@ const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
     if (!open) {
       onClose();
     }
-  };
+  }
 
   return (
-    <Modal
-      title="Welcome back"
-      description="Login to your account."
-      isOpen={isOpen}
-      onChange={onChange}
+    <Modal 
+      title="Welcome back" 
+      description="Login to your account." 
+      isOpen={isOpen} 
+      onChange={onChange} 
     >
       <Auth
-<<<<<<< HEAD
         supabaseClient={supabaseClient}
-        providers={["google"]}
+        // providers={['github']}
         magicLink={true}
         appearance={{
           theme: ThemeSupa,
           variables: {
             default: {
               colors: {
-                brand: "#404040",
-                brandAccent: "#22c55e",
-              },
-            },
-          },
+                brand: '#404040',
+                brandAccent: '#22c55e'
+              }
+            }
+          }
         }}
         theme="dark"
       />
-=======
-  supabaseClient={supabaseClient}
-  providers={['google']}
-  googleClientId={googleClientId}
-  googleClientSecret={googleClientSecret}
-  magicLink={true}
-  appearance={{
-    theme: ThemeSupa,
-    variables: {
-      default: {
-        colors: {
-          brand: '#404040',
-          brandAccent: '#22c55e'
-        }
-      }
-    }
-  }}
-  theme="dark"
-/>
-
->>>>>>> 50eb8d1de1f6ba887380b6713569a24fd5926d0c
     </Modal>
   );
-};
+}
 
 export default AuthModal;
