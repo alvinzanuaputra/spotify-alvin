@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import { Auth } from '@supabase/auth-ui-react';
+import { Auth, Session } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { 
   useSessionContext, 
@@ -33,6 +33,12 @@ const AuthModal = () => {
     }
   }
 
+  const handleAuthChange = (event: any, session: Session | null) => {
+    if (session) {
+      router.push('/dashboard'); // Redirect to dashboard on successful login
+    }
+  }
+
   return (
     <Modal 
       title="Welcome back" 
@@ -56,6 +62,7 @@ const AuthModal = () => {
           }
         }}
         theme="dark"
+        onAuthStateChange={handleAuthChange} // This function will be called on auth state change
       />
     </Modal>
   );
