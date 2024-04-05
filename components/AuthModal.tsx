@@ -19,6 +19,9 @@ const AuthModal = () => {
   const { onClose, isOpen } = useAuthModal();
   
   const supabaseClient = useSupabaseClient();
+const googleClientId = process.env.GOOGLE_CLIENT_ID;
+const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
+
 
   useEffect(() => {
     if (session) {
@@ -41,22 +44,25 @@ const AuthModal = () => {
       onChange={onChange} 
     >
       <Auth
-        supabaseClient={supabaseClient}
-        // providers={['google']}
-        magicLink={true}
-        appearance={{
-          theme: ThemeSupa,
-          variables: {
-            default: {
-              colors: {
-                brand: '#404040',
-                brandAccent: '#22c55e'
-              }
-            }
-          }
-        }}
-        theme="dark"
-      />
+  supabaseClient={supabaseClient}
+  providers={['google']}
+  googleClientId={googleClientId}
+  googleClientSecret={googleClientSecret}
+  magicLink={true}
+  appearance={{
+    theme: ThemeSupa,
+    variables: {
+      default: {
+        colors: {
+          brand: '#404040',
+          brandAccent: '#22c55e'
+        }
+      }
+    }
+  }}
+  theme="dark"
+/>
+
     </Modal>
   );
 }
