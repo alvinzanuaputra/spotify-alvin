@@ -1,6 +1,6 @@
-# Full Stack Spotify Clone with Next.js 13.4 App Router: React, Tailwind, Supabase, PostgreSQL, Stripe
+# Alvin Zanua Putra - Full Stack Spotify Clone with Next.js 13.4 App Router: React, Tailwind, Supabase, PostgreSQL, Stripe
 
-
+![Screenshot 2024-04-05 120520](https://github.com/alvinzanuaputra/spotify-alvin/assets/140075243/f416596b-33f8-48f5-8e53-43bbd449e75a)
 
 For DEMO, use [Stripe Testing Cards](https://stripe.com/docs/testing)
 
@@ -36,7 +36,7 @@ Key Features:
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/AntonioErdeljac/next13-spotify.git
+git clone https://github.com/alvinzanuaputra/https://alvinznutra-spotifyclone.git
 ```
 
 ### Install packages
@@ -59,7 +59,7 @@ STRIPE_WEBHOOK_SECRET=
 ```
 
 ### Add SQL Tables
-Use `database.sql` file, create songs and liked_songs table (there is a video tutorial)
+Use `database.sql` in supabase example file, create songs and liked_songs table 
 
 ### Start the app
 
