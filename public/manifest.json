@@ -4,8 +4,8 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "mynextpwa",
-    "short_name": "pwa",
+    "name": "Alvin Spotify",
+    "short_name": "Alvin Spotify-pwa",
     "icons": [
         {
             "src": "/icon-192x192.png",
