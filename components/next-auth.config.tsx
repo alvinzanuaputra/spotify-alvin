@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth, { Session, User } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
-import Providers from 'next-auth/providers';
+import * as Providers from 'next-auth/providers'; // Import all providers as a namespace
 
 // Define types for provider options
 type ProviderOptions = {
@@ -16,13 +16,13 @@ const providerOptions: ProviderOptions = {
 };
 
 // Define your provider
-const GoogleProvider = Providers.Google(providerOptions);
+const googleProvider = Providers.Google(providerOptions);
 
 // Add other providers if needed
 
 // Define options for NextAuth
 const options = {
-  providers: [GoogleProvider],
+  providers: [googleProvider],
   session: {
     jwt: true,
   },
