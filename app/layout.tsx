@@ -1,29 +1,33 @@
-import { Figtree } from 'next/font/google'
+import { Figtree } from "next/font/google";
 
-import getSongsByUserId from '@/actions/getSongsByUserId'
-import getActiveProductsWithPrices from '@/actions/getActiveProductsWithPrices'
-import Sidebar from '@/components/Sidebar'
-import ToasterProvider from '@/providers/ToasterProvider'
-import UserProvider from '@/providers/UserProvider'
-import ModalProvider from '@/providers/ModalProvider'
-import SupabaseProvider from '@/providers/SupabaseProvider'
-import Player from '@/components/Player'
+import getSongsByUserId from "@/actions/getSongsByUserId";
+import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
+import Sidebar from "@/components/Sidebar";
+import ToasterProvider from "@/providers/ToasterProvider";
+import UserProvider from "@/providers/UserProvider";
+import ModalProvider from "@/providers/ModalProvider";
+import SupabaseProvider from "@/providers/SupabaseProvider";
+import Player from "@/components/Player";
+import { Metadata } from "next";
 
-import './globals.css'
+import "./globals.css";
 
-const font = Figtree({ subsets: ['latin'] })
+const font = Figtree({ subsets: ["latin"] });
 
-export const metadata = {
-  title: 'Alvin Spotify Clone',
-  description: 'Alvin Spotify Clone',
-}
+export const metadata: Metadata = {
+  title: "Alvin Spotify Clone",
+  description: "Alvin Spotify Clone",
+  manifest: "/manifest.json",
+  icons: { apple: "/icon.png" },
+  themeColor: "#0000",
+};
 
 export const revalidate = 0;
 
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   const products = await getActiveProductsWithPrices();
   const userSongs = await getSongsByUserId();
@@ -35,13 +39,11 @@ export default async function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider products={products} />
-            <Sidebar songs={userSongs}>
-              {children}
-            </Sidebar>
+            <Sidebar songs={userSongs}>{children}</Sidebar>
             <Player />
           </UserProvider>
         </SupabaseProvider>
       </body>
     </html>
-  )
+  );
 }
