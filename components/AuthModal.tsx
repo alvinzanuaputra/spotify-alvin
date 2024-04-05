@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from 'react';
-// import { Auth } from '@supabase/auth-ui-react';
+import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { 
   useSessionContext, 
@@ -40,9 +40,9 @@ const AuthModal = () => {
       isOpen={isOpen} 
       onChange={onChange} 
     >
-{/*       <Auth
+      <Auth
         supabaseClient={supabaseClient}
-        providers={['github']}
+        // providers={['github']}
         magicLink={true}
         appearance={{
           theme: ThemeSupa,
@@ -56,7 +56,7 @@ const AuthModal = () => {
           }
         }}
         theme="dark"
-      /> */}
+      />
     </Modal>
   );
 }
