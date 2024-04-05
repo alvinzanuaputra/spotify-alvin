@@ -42,7 +42,7 @@ const AuthModal = () => {
     >
       <Auth
         supabaseClient={supabaseClient}
-        // providers={['github']}
+        providers={['google']}
         magicLink={true}
         appearance={{
           theme: ThemeSupa,
@@ -56,6 +56,10 @@ const AuthModal = () => {
           }
         }}
         theme="dark"
+        googleOAuthParams={{
+          clientId: process.env.GOOGLE_CLIENT_ID,
+          clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        }}
       />
     </Modal>
   );
