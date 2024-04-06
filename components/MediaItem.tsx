@@ -1,5 +1,4 @@
 "use client";
-import React, { useState } from "react";
 import Image from "next/image";
 import useLoadImage from "@/hooks/useLoadImage";
 import { Song } from "@/types";
@@ -12,8 +11,8 @@ interface MediaItemProps {
 
 const truncateTitle = (title: string): string => {
   const words = title.split(" ");
-  if (words.length > 1) {
-    return words.slice(0, 1).join(" ") + "...";
+  if (words.length > 2) {
+    return words.slice(0, 2).join(" ") + "...";
   }
   return title;
 };
@@ -21,7 +20,6 @@ const truncateTitle = (title: string): string => {
 const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
   const player = usePlayer();
   const imageUrl = useLoadImage(data);
-  const [showFullTitle] = useState(false);
   const handleClick = () => {
     if (onClick) {
       return onClick(data.id);
@@ -60,11 +58,7 @@ const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
         />
       </div>
       <div className="flex flex-col gap-y-1 overflow-hidden">
-        {showFullTitle ? (
-          <p className=" text-[12px] text-white lg:text-md truncate">{data.title}</p>
-        ) : (
-          <p className=" text-[12px] text-white lg:text-md truncate">{truncateTitle(data.title)}</p>
-        )}
+          <p className=" text-md text-white truncate">{data.title}</p>
         <p className="text-neutral-400 text-[10px] lg:text-md truncate">By {data.author}</p>
 
       
