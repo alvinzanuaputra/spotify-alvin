@@ -108,7 +108,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
             w-full 
             justify-end 
             items-center
-            gap-x-1
+            gap-x-2
           "
       >
         <AiFillStepBackward
