@@ -74,10 +74,10 @@ const LikeButton: React.FC<LikeButtonProps> = ({
         });
 
       if (error) {
-        toast.error(error.message);
+        toast.error("Too fast !");
       } else {
         setIsLiked(true);
-        toast.success('Success');
+        toast.success('Success added to liked songs!');
       }
     }
 
@@ -93,7 +93,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({
       "
       onClick={handleLike}
     >
-      <Icon color={isLiked ? '#22c55e' : 'white'} size={25} />
+      <Icon color={isLiked ? '#22c55e' : 'white'} size={26} />
     </button>
   );
 }
