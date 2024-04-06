@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import useLoadImage from "@/hooks/useLoadImage";
 import { Song } from "@/types";
@@ -11,19 +12,16 @@ interface MediaItemProps {
 
 const truncateTitle = (title: string): string => {
   const words = title.split(" ");
-  if (words.length > 2) {
-    return words.slice(0, 2).join(" ") + "...";
+  if (words.length > 1) {
+    return words.slice(0, 1).join(" ") + "...";
   }
   return title;
 };
 
-const MediaItem: React.FC<MediaItemProps> = ({
-  data,
-  onClick,
-}) => {
+const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
   const player = usePlayer();
   const imageUrl = useLoadImage(data);
-
+  const [showFullTitle] = useState(false);
   const handleClick = () => {
     if (onClick) {
       return onClick(data.id);
@@ -31,7 +29,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
     return player.setId(data.id);
   };
 
-  return ( 
+  return (
     <div
       onClick={handleClick}
       className="
@@ -45,7 +43,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
         rounded-md
       "
     >
-      <div 
+      <div
         className="
           relative 
           rounded-md 
@@ -62,13 +60,17 @@ const MediaItem: React.FC<MediaItemProps> = ({
         />
       </div>
       <div className="flex flex-col gap-y-1 overflow-hidden">
-        <p className="text-white truncate">{truncateTitle(data.title)}</p>
-        <p className="text-neutral-400 text-sm truncate">
-          By {data.author}
-        </p>
+        {showFullTitle ? (
+          <p className="text-white truncate">{data.title}</p>
+        ) : (
+          <p className="text-white truncate">{truncateTitle(data.title)}</p>
+        )}
+        <p className="text-neutral-400 text-sm truncate">By {data.author}</p>
+
+      
       </div>
     </div>
   );
-}
+};
 
 export default MediaItem;

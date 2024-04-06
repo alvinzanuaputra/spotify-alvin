@@ -7,14 +7,14 @@ import { FaUserAlt } from "react-icons/fa";
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { toast } from "react-hot-toast";
 import { HiHome } from "react-icons/hi";
-import { BiSearch } from "react-icons/bi";
+import { BiPlus, BiSearch } from "react-icons/bi";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import usePlayer from "@/hooks/usePlayer";
 import Button from "./Button";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
 import useUploadModal from "@/hooks/useUploadModal";
-import { TbPlaylist } from "react-icons/tb";
+// import { TbPlaylist } from "react-icons/tb";
 
 
 interface HeaderProps {
@@ -147,7 +147,7 @@ const Header: React.FC<HeaderProps> = ({
               transition
             "
           >
-            <TbPlaylist 
+            <BiPlus
           onClick={onClick} 
           size={20} 
           className="text-black "
