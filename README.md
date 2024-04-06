@@ -1,11 +1,8 @@
-# Alvin Zanua Putra - Full Stack Spotify Clone with Next.js 13.4 App Router: React, Tailwind, Supabase, PostgreSQL, Stripe
+# Alvin Zanua Putra - Full Stack Spotify Clone with Next.js 13.4 App Router: React, Tailwind, Supabase, PostgreSQL, Stripe, Next pwa
 
 ![Screenshot 2024-04-05 120520](https://github.com/alvinzanuaputra/spotify-alvin/assets/140075243/f416596b-33f8-48f5-8e53-43bbd449e75a)
 
 For DEMO, use [Stripe Testing Cards](https://stripe.com/docs/testing)
-
-This is a repository for a Full Stack Spotify Clone with Next.js 13.4 App Router: React, Tailwind, Supabase, PostgreSQL, Stripe
-
 
 Key Features:
 
