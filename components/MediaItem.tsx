@@ -1,7 +1,5 @@
-"use client";
-
+"use client"
 import Image from "next/image";
-
 import useLoadImage from "@/hooks/useLoadImage";
 import { Song } from "@/types";
 import usePlayer from "@/hooks/usePlayer";
@@ -10,6 +8,14 @@ interface MediaItemProps {
   data: Song;
   onClick?: (id: string) => void;
 }
+
+const truncateTitle = (title: string): string => {
+  const words = title.split(" ");
+  if (words.length > 2) {
+    return words.slice(0, 2).join(" ") + "...";
+  }
+  return title;
+};
 
 const MediaItem: React.FC<MediaItemProps> = ({
   data,
@@ -22,7 +28,6 @@ const MediaItem: React.FC<MediaItemProps> = ({
     if (onClick) {
       return onClick(data.id);
     }
-  
     return player.setId(data.id);
   };
 
@@ -57,7 +62,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
         />
       </div>
       <div className="flex flex-col gap-y-1 overflow-hidden">
-        <p className="text-white truncate">{data.title}</p>
+        <p className="text-white truncate">{truncateTitle(data.title)}</p>
         <p className="text-neutral-400 text-sm truncate">
           By {data.author}
         </p>
@@ -65,5 +70,5 @@ const MediaItem: React.FC<MediaItemProps> = ({
     </div>
   );
 }
- 
+
 export default MediaItem;
