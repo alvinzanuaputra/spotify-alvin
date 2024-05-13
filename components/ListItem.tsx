@@ -53,7 +53,7 @@ const ListItem: React.FC<ListItemProps> = ({
           className="object-cover"
           src={image}
           fill
-          alt="Image"
+          alt="/public/images/default.jpg"
         />
       </div>
       <p className="font-medium truncate py-5">
